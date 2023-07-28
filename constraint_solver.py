@@ -192,7 +192,10 @@ def constraintSolver(x,y):
         all_constraints.append(i)
         hashed_map.add(hashed_fun(i))
     constrStr = " and ".join(all_constraints)
-    return {"Constraints":constrStr,"Variable_ranges":variable_ranges}
+    defaultValues = {}
+    for i in variable_ranges:
+      defaultValues[i] = variable_ranges[i]["Var_mapped"]
+    return {"Constraints":constrStr,"Variable_ranges":variable_ranges,"Default_values":defaultValues}
 
 
 x = "[string(求める数は latex(12) の倍数よりも latex(6) 大きい数なので,),string(latex(12 \\\\times \\\\square + 6) と表すことができます。),string(latex((199-6)\\\\div 12 = 16 ) あまり latex(1 ) より,),string(latex(12\\\\times 16+6= \\\\underline{198}) です。latex(\\\\quad \\\\blacktriangleleft 199-1=198) でも可)]"
